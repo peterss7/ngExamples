@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<div id="root">
+    <div class="row-cont" id="menu">
+        <annex-nav-bar></annex-nav-bar>
+    </div>
+    <div id="main">
+        <div id="tips-display">
+            <div id="tips-header">
+                <h1>{{ currentKey }}</h1>
+            </div>
+            <p>
+                {{ tipsKeys[0] }}:<br>
+                {{ tips[tipsKeys[0][0]] }}
+            </p>
+        </div>
+    </div>
+    <div class="row-cont" id="footer">
+        <p>footer</p>
+    </div>
+</div>

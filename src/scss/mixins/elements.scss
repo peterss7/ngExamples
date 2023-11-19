@@ -1,0 +1,44 @@
+@mixin flex-cont($direction, $width, $height) {
+    @include center-flex();
+    @include set-dim($width, $height);
+    flex-direction: $direction;
+}
+
+@mixin center-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin default-flex($direction, $width, $height){
+    @include set-dim($width, $height);
+    display: flex;
+    flex-direction: $direction;
+}
+
+@mixin set-dim($width, $height) {
+    width: #{$width};
+    height: #{$height};
+}
+
+@mixin three-row-grid($row1, $row2, $row3) {
+    display: grid;
+    width: 100%;
+    grid-template-rows:  #{$row1} #{$row2} #{$row3};
+}
+
+@mixin two-row-grid($row1, $row2){
+    @include full-width-grid;
+    grid-template-rows:  #{$row1} #{$row2};
+}
+
+@mixin full-width-grid{
+    width: 100%;
+    display: grid;
+}
+
+@mixin three-column-grid($col1, $col2, $col3) {
+    display: grid;
+    height: 100%;
+    grid-template-columns: #{$col1}, #{$col2}, #{$col3};
+}

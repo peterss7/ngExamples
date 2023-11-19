@@ -1,0 +1,13 @@
+@import '../variables/_variables.scss';
+
+@mixin p-primary {
+    color: $clrSecondary;
+    font-size: $szFontP;
+    font-family: $fntSecondary;
+}
+
+@mixin h-primary {
+    color: $clrPrimary;
+    font-family: $fntPrimary;
+    font-size: $szFontH;
+}

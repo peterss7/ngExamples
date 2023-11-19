@@ -1,0 +1,130 @@
+{
+    "ngSJP-Tips": {
+        "this project": "This is an application that will be updated as often as I can, where each update details ways that I use angular",
+        "purpose": "to demonstrate some techniques that I have learned over time.",
+        "goal": "To update this project every week or so to share what I've learned",
+        "how": "use this json file as the data that the app will display.",
+        "random fun facts": [
+            {
+                "you can use multiple cursors": {
+                    "where": "Microsoft Visual Studio and VScode (probably others)",
+                    "how": [
+                        "put the cursor at the beginning of the first line that needs a cursor.",
+                        "then hold alt+shift and click on the end of the last line that needs a cursor",
+                        "then hit the end or home keys, and all of your cursors will be at the end or start of the lines.",
+                        "hold control and press left and right arrow to move through words so that the cursors are always in the same part of the line."
+                    ],
+                    "why": [
+                        "you can copy and past parts of multiple lines into multiple other lines if your cursors are properly placed",
+                        "I recently figured this out and I can work on multiple lines at the same time if they have similar structure"
+                    ]
+                }
+            }
+        ],
+        "set up project": {
+            "ng n ngSJP-Tips --skip-tests=true --prefix=annex --routing=true --style=scss": {
+                "--skip-tests": "do not generate .ts.spec files, we don't need them at this stage",
+                "--prefix": "this is the prefix of the HTML selectors. Can change from 'app' to whatever you like",
+                "--routing": "generate the app routing module",
+                "--style": "choose style. css is default, but SCSS and SASS are very worth learning."
+            },
+            "install bootstrap": {
+                "bootstrap website": "getboostrap.com",
+                "command": "npm i bootstrap@5.3.2",
+                "angular.json": {
+                    "add to styles": "node_modules/bootstrap/dist/scss/bootstrap.min.css",
+                    "two locations": [
+                        "projects-><app-name>->architect->build->options->styles",
+                        "projects-><app-name>->architect->test->styles"
+                    ]
+                },
+                "styles.scss": {
+                    "include this at the top": "@import 'bootstrap/scss/bootstrap"
+                }
+            },
+            "configure scss": {
+                "scss folder": {
+                    "main.scss": "imports all subfolder styles",
+                    "mixins": {
+                        "what is a mixin": {
+                            "summary": "A mixin is a reusable set of styles that can be applied to styles in component scss styles.",
+                            "why": {
+                                "you divs often require the same styles, like these": [
+                                    "display: flex",
+                                    "flex direction: column",
+                                    "justifty-content: center",
+                                    "align-tems: center"
+                                ],
+                                "you want to be DRY": "Don't repeat yourself"
+                            },
+                            "how": [
+                                "write mixin in the mixin file in appropriate subfoler",
+                                "see mixins in the _mixins.scss file. Those are some I use often",
+                                "add mixin to component styles with @include <mixin name>(<passed values>)",
+                                "see home.component.scss for usage examples"
+                            ]
+                        },
+                        "scss/mixins folder": {
+                            "_mixins.scss": "imports the styles of all mixin folders/files",
+                            "files/subfolders": [
+                                "mixins can be organized according to purpose",
+                                "you could have a folder for component layouts",
+                                "mixins folder for different visual styles",
+                                "different styles for different sections of website",
+                                "I have never made a website that justified so much detail but my project is set up to do that if i decide to."
+                            ]
+                        }
+                    },
+                    "variables": {
+                        "what are variables": {
+                            "purpose": "store values that to call by name",
+                            "usages": [
+                                "store font styles",
+                                "store colors",
+                                "store styles",
+                                "store filenames",
+                                "any value you might reuse"
+                            ]
+                        },
+                        "/scss/variables folder": {
+                            "_variables.scss": "imports the styles of all variables files/folders",
+                            "files/subfolders": [
+                                "variables can be organized accoeding to use",
+                                "big websites have folders devoted to categories, like colors, fonts, sizes, even filenames can be variables",
+                                "I only have a _colors.scss file and a _fonts.scss file, no subfolders"
+                            ]
+                        }
+                    },
+                    "vendors": {
+                        "vendors?": {
+                            "purpose": "Overrides of third party styles.",
+                            "usages": "There are many usages, but I've only ever used it to change bootstrap colors."
+                        },
+                        "/scss/vendors folder": {
+                            "_vendors.scss": "imports the styles of all variables files/folders",
+                            "files/subfolders": [
+                                "organized according to source of styles being overridden"
+                            ]
+                        }
+                    },
+                    "others": [
+                        "there are a lot of other categories to organize styles",
+                        "i've only included what I normally do. My angular apps honestly aren't ever big enough to justify more specific scss folders and files"
+                    ]
+                }
+            }
+        },
+        "current project structure by module": {
+            "app-module": {
+                "components": {
+                    "home": {
+                        "goal": [
+                            "demonstate quick layout design",
+                            "make it possible to navigate this json string with bootstrap components and databinding"
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

@@ -35,7 +35,6 @@
                   "npm i @popperjs/core",
                   "npm i jquery --save"
                 ],
-
                 "styles.scss": {
                     "include this at the top": "@import 'bootstrap/scss/bootstrap"
                 }

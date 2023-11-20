@@ -1,0 +1,5 @@
+11/19:
+  - I changed some of the bootstrap install instructions. I had some incorrect info because I was trying something and mixed up what I was doing.
+  - I figured out a really awesome thing mixins can do.
+      - It's all about how to use calculations to create precise layouts
+      - I already added this into the app, see assets folder "awesome-thing-mixins-can-do" to learn how it works (this is new to me as well)

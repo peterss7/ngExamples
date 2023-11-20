@@ -1,0 +1,14 @@
+#main-cont {
+  @include set-dim(100%, 100%);
+  @include create-grid(2.25, 3, 4.75);
+  #sub-cont {
+    @include center-flex(column, 100%, 100%);
+    // There are three columns, but you don't need three divs
+    // This div will be in the middle with no div to its left or right
+    grid-column: 2;
+  }
+}
+
+/*
+* See image in assets/img to see what it looks like
+*/

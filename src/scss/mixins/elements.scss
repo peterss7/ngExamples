@@ -10,6 +10,13 @@
     align-items: center;
 }
 
+@mixin bg-img($imgurl, $width, $height) {
+  background-image: url($imgurl);
+  background-position: center;
+  background-size: $width $height;
+  background-repeat: no-repeat;
+}
+
 @mixin default-flex($direction, $width, $height){
     @include set-dim($width, $height);
     display: flex;
@@ -21,24 +28,27 @@
     height: #{$height};
 }
 
-@mixin three-row-grid($row1, $row2, $row3) {
-    display: grid;
-    width: 100%;
-    grid-template-rows:  #{$row1} #{$row2} #{$row3};
+@mixin create-grid($cols, $rows){
+  display: grid;
+  grid-template-columns: map-to-fractions($cols);
+  grid-template-rows: map-to-fractions($rows);
 }
 
-@mixin two-row-grid($row1, $row2){
-    @include full-width-grid;
-    grid-template-rows:  #{$row1} #{$row2};
+@function map-to-fractions($list){
+  $fractions: ();
+  @each $item in $list {
+    $fraction: 100% * $item / sum($list);
+    $fractions: append($fractions, $fraction);
+  }
+  @return $fractions;
 }
 
-@mixin full-width-grid{
-    width: 100%;
-    display: grid;
+@function sum($list) {
+  $total: 0;
+  @each $item in $list {
+    $total: $total + $item;
+  }
+  @return $total;
 }
 
-@mixin three-column-grid($col1, $col2, $col3) {
-    display: grid;
-    height: 100%;
-    grid-template-columns: #{$col1}, #{$col2}, #{$col3};
-}
+

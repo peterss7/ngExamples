@@ -3,7 +3,7 @@
 #root {
     position: absolute;
     @include set-dim(100vw, 100vh);
-    @include three-row-grid(10%, 80%, 10%);
+    @include create-grid((1), (1, 8, 1));
     .row-cont {
         &#menu {
             grid-row: 1;
@@ -15,21 +15,17 @@
         }
     }
     #main {
-        background-image: url('../../assets/bg.png');
+        @include bg-img($imgBg, 100vw, auto);
+        @include create-grid((5, 2, 4), (1));
         background-position: 0 -50vh;
-        background-size: 100vw auto;
-        background-repeat: no-repeat;
-        // border: 1px solid blue;
         grid-row: 2;
-        @include three-column-grid(40%, 15%, 45%);
         #tips-display {
-            // border: 2px yellow solid;
             background-color: $background-66;
             grid-column: 3;
             p {
                 margin-left: 1rem;
             }
-            @include two-row-grid(20%, 80%);
+            @include create-grid((1), (2, 8));
             #tips-header {
                 grid-row: 1;
                 @include flex-cont(row, 100%, 100%);

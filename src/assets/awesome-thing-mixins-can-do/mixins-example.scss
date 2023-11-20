@@ -1,0 +1,43 @@
+/*
+* This is the mixin called by the component's scss file.
+* @param {list<number>} $cols - A List of column specifications.
+* Example: if I pass (a,b,c), where a=1, b=2, c=3, to mixin create-grid,
+* Then colmn 1 will have width = a / sum($cols) = a / (a + b + c) = 1 / 6 = ~15%
+* Then colmn 2 will have width = b / sum($cols) = b / (a + b + c) = 2 / 6 = ~33%
+* Then colmn 1 will have width = c / sum($cols) = c / (a + b + c) = 3 / 6 = 50%
+*/
+@mixin create-grid($cols...){
+  display: grid;
+
+  // This line is the same as saying grid-template-columns: 15% 33% 50% if $cols = (1,2,3)
+  grid-template-columns: map-cols($cols);
+}
+
+/*
+* This is where the widths of the columns are acutally calculated.
+* This function is called by mixin create-grid
+* @param {list} $cols - the same list of column specs passed from the component scss file
+* The calculations described at the top of this file happen here
+* @returns {list} $widths - the widths of the columns passed from component as percentages
+*/
+@function map-cols($cols){
+  $widths: ();
+  @each $col in $cols {
+    $width: 100% * $col / sum($cols);
+    $widths: append($widths, $width);
+  }
+  @return $widths;
+}
+
+/*
+* This is simple a function that adds up values in a list
+* @param {list<number>} $list - The numbers being added
+* @return {number} $total - The sum of the list items
+*/
+@function sum($list) {
+  $total: 0;
+  @each $item in $list {
+    $total: $total + $item;
+  }
+  @return $total;
+}

@@ -30,14 +30,12 @@
             },
             "install bootstrap": {
                 "bootstrap website": "getboostrap.com",
-                "command": "npm i bootstrap@5.3.2",
-                "angular.json": {
-                    "add to styles": "node_modules/bootstrap/dist/scss/bootstrap.min.css",
-                    "two locations": [
-                        "projects-><app-name>->architect->build->options->styles",
-                        "projects-><app-name>->architect->test->styles"
-                    ]
-                },
+                "installation commands": [
+                  "npm i bootstrap@5.3.2",
+                  "npm i @popperjs/core",
+                  "npm i jquery --save"
+                ],
+
                 "styles.scss": {
                     "include this at the top": "@import 'bootstrap/scss/bootstrap"
                 }

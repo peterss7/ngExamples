@@ -97,6 +97,7 @@ MIXINS!
                 @include my-flex-container($width: 75%, $verticalAlignment: bottom);
             }
     - All of the values you didn't pass will be set to the default value defined in the my-flex-container mixin declaration
-    - Also note that you need to do this:   <a-property>: #{$a-value}
-        if the parameter your passing is more than just letters (pretty sure). 100px, 100vh, 50px, etc... need #{$a-value}
+    - Interpolation: Note that you need to do this:   <a-property>: #{$a-value}
+        if the parameter your passing is more than just letters: 100px, 100vh, 50px, etc... need #{$a-value}
         when assigning that value to a property.
+

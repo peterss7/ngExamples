@@ -1,11 +1,11 @@
 resources
     - code academy course: https://www.codecademy.com/courses/learn-sass/lessons/hello-sass/exercises/compile-sass
     - the sass documentation: https://sass-lang.com/documentation/
-scss directory
+
     src   
     │    
     │    
-    │───SCSS
+    │───SCSS 
         │───main.scss
         │
         ├───mixins

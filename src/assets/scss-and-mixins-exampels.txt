@@ -30,28 +30,28 @@ resources
 MIXINS!
     - A mixin is a reusable set of styles that can be reused within other styles.
     - suppose you have many divs styled like this:
-        .my-div {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            height: 100%;
-            justify-content: center;
-            align-items: center;
-        }
-    - there can be a lot of times elements need almost identical styling same, so make a mixin and turn the above into this:
-        .my-div{
-            @include center-flex
-        }
+          .my-div {
+              display: flex;
+              flex-direction: column;
+              width: 100%;
+              height: 100%;
+              justify-content: center;
+              align-items: center;
+          }
+    - there can be a lot of times elements need almost identical styling, so make a mixin!:
+          .my-div{
+              @include center-flex;
+          }
     - "center-flex" is the name of a mixin somewhere in your scss/mixin directory.
     - It looks like this:
-        @mixin center-flex {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            height: 100%;
-            justify-content: center;
-            align-items: center;
-        }
+          @mixin center-flex {
+              display: flex;
+              flex-direction: column;
+              width: 100%;
+              height: 100%;
+              justify-content: center;
+              align-items: center;
+          }
     - But the mixin itself can be improved further. Make it take variables:
             @mixin center-flex($width=100%, $height=100%, $flexDirection=center){
                 display: flex;
@@ -61,7 +61,7 @@ MIXINS!
                 justify-content: center;
                 align-items: center;
             }
-    - Now you can customize your mixins without barely having to write and code, just do this:
+    - Now you can customize your mixins without barely having to write any code:
             .my-div {
                 @include center-flex(50%, 75%, row);
             }
@@ -76,15 +76,15 @@ MIXINS!
                 @include center-flex($height: 100%)
             }
     - But consider mixins for mixins.
-            @mixin set-dim($width: 100%, $height: 100%){
+            @mixin set-dim($width=100%, $height=100%){
                 width: ${#width};
                 height: ${#height};
             }
-            @mixin default-flex($width: 100%, $height$width: 100%){
+            @mixin default-flex($width=100%, $height$width=100%){
                 @include set-dim($width, $height);
-                display-default
+                display: flex
             }
-            @mixin my-flex-container($width: 100%, $height$width: 100%, $flex-direction: column, $horizontalAlignment: center, $verticalAlignment: center){
+            @mixin my-flex-container($width=100%, $height$width=100%, $flex-direction=column, $horizontalAlignment=center, $verticalAlignment=center){
                 @include default-flex($width, $height$width);
                 flex-direction: $flexDirection;
                 align-items: $horizontalAlignment;

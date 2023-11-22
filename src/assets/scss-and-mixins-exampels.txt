@@ -28,7 +28,7 @@ resources
                 bs-override.scss
                 _vendors.scss
 MIXINS!
-    - A mixin is a reusable set of styles that can be applied to styles in component scss styles.
+    - A mixin is a reusable set of styles that can be reused within other styles.
     - suppose you have many divs styled like this:
         .my-div {
             display: flex;
